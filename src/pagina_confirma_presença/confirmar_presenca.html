@@ -15,9 +15,9 @@
   <!-- Texto de boas-vindas -->
   <p>Olá, seja bem-vindo(a) ao nosso casamento!</p>
 
-  <form id="confirmarPresencaForm" action="https://script.google.com/macros/s/AKfycbwIndnZtnmpCRlBXuQxoLn3t4FdEu-myy_zLcLFevTxXC69psTrNXO3zYdDR7wva6Y/exec" method="post">
+  <form name="confirmarPresencaForm" method="post" action="">
     <label for="nome">Seu nome:</label>
-    <input type="text" id="nome" name="nome" required>
+    <input type="text" name="nome" required>
     <br>
     <label for="confirmacao">Você confirma sua presença?</label>
     <select id="confirmacao" name="confirmacao" required>
@@ -25,7 +25,7 @@
       <option value="Não">Não</option>
     </select>
     <br>
-    <button type="submit">Confirmar Presença</button>
+    <button type="submit" value="Enviar" id="enviar">Confirmar Presença</button>
   </form>
 
   <script src="script.js"></script> <!-- Arquivo JavaScript para manipulação de eventos -->

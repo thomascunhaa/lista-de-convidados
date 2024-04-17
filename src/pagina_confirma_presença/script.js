@@ -1,19 +1,12 @@
-// Função para lidar com a submissão do formulário de confirmação no casamento religioso
-function verificarPresenca(event) {
-  event.preventDefault(); // Evita o envio do formulário
+const scrip_do_google = 'https://script.google.com/macros/s/AKfycbxJTE7mCPXFJ7bUeZVRHv09rRmHqxdaRRQvRDIPt0EfwN953m-GZnes3p-FRPeTaq0/exec';
+const dados_do_formulario = document.forms['confirmarPresencaForm'];
 
-  // Aqui você pode adicionar código para processar a confirmação de presença no casamento religioso
-  var nome = document.getElementById("nome").value;
-  var confirmacao = document.getElementById("confirmacao").value;  
-  alert("Obrigado, " + nome + ", pela confirmação de presença no casamento religioso!");
+dados_do_formulario.addEventListener('submit', function(event) {
+  event.preventDefault(); // Evita o envio padrão do formulário
 
-}
-
-// Função para lidar com a submissão do formulário de confirmação na festa de casamento
-function verificarPresencaFesta(event) {
-  event.preventDefault(); // Evita o envio do formulário
-
-  // Aqui você pode adicionar código para processar a confirmação de presença na festa de casamento
-  var nomeFesta = document.getElementById("nome").value; // Corrigido para "nome"
-  alert("Obrigado, " + nomeFesta + ", pela confirmação de presença na festa de casamento!");
-}
+  fetch(scrip_do_google, {method: 'POST', body: new FormData(dados_do_formulario)}).then(response => {
+    alert('Dados enviado com sucesso!', response);
+    dados_do_formulario.reset();
+  })
+  .catch(error => console.log('Erro enviar dos dados.'))
+});
