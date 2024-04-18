@@ -68,3 +68,30 @@ button:hover {
     margin-right: 10px; /* Afasta um pouco da borda direita */
   }
 }
+
+#loading {
+  display: none;
+  text-align: center;
+  margin-top: 20px; /* Adiciona algum espaço acima do texto */
+}
+
+/* Animação da bolinha giratória */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Estilo da bolinha giratória */
+.spinner {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top-color: #3498db; /* Cor do tema */
+  animation: spin 1s ease-in-out infinite; /* Aplica a animação */
+}
