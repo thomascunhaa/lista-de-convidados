@@ -10,13 +10,17 @@
 
 <body>
 
-  <h2>Confirmação de Presença - Casamento</h2>
+  <div class="container">
+    <h2>Confirmação de Presença - Casamento</h2>
 
-  <form id="verificarForm" onsubmit="verificarPresenca(event)">
-    <label for="nome">Digite seu nome:</label>
-    <input type="text" id="nome" name="nome" required>
-    <button type="submit">Verificar Presença</button>
-  </form>
+    <div class="form-container">
+      <form id="verificarForm" onsubmit="verificarPresenca(event)">
+        <label for="nome">Digite seu nome:</label>
+        <input type="text" id="nome" name="nome" required>
+        <button type="submit">Verificar Presença</button>
+      </form>
+    </div>
+  </div>
 
   <script src="script.js"></script> <!-- Arquivo JavaScript para manipulação de eventos -->
 </body>

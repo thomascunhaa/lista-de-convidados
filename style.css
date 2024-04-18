@@ -6,19 +6,33 @@ body {
   color: #333;
 }
 
+.container {
+  max-width: 800px;
+  margin: 0 auto; /* Centraliza horizontalmente */
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centraliza verticalmente */
+  align-items: center; /* Centraliza horizontalmente */
+  min-height: 100vh; /* Para garantir que o contêiner ocupe pelo menos toda a altura da tela */
+}
+
 h2 {
   text-align: center;
   margin-top: 30px;
   color: #3498db; /* Azul serenity */
 }
 
-form {
-  max-width: 400px;
-  margin: 0 auto;
+.form-container {
   background-color: #fff;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+form {
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 label {
@@ -51,7 +65,7 @@ button:hover {
 
 /* Estilo para o formulário quando estiver em tela pequena */
 @media (max-width: 480px) {
-  form {
+  .form-container {
     padding: 20px;
   }
 }

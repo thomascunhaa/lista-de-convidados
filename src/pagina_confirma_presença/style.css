@@ -14,11 +14,11 @@ h2 {
 
 form {
   max-width: 400px;
-  margin: 0 auto;
+  margin: 0 auto; /* Centraliza horizontalmente */
   background-color: #fff;
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Aumenta a sombra para um efeito mais proeminente */
 }
 
 p {
@@ -31,18 +31,9 @@ label {
   font-weight: bold;
 }
 
+input,
 select,
 button {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-  font-size: 16px;
-}
-
-input {
   width: 100%;
   padding: 12px;
   margin-bottom: 20px;
@@ -56,21 +47,24 @@ button {
   background-color: #3498db; /* Azul serenity */
   color: white;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s; /* Adiciona transição suave */
 }
 
 button:hover {
   background-color: #2980b9; /* Azul serenity mais escuro */
+  transform: translateY(-2px); /* Eleva ligeiramente o botão ao passar o mouse */
 }
 
-/* Estilo específico para o campo de confirmação */
+/* Estilo para o campo de confirmação */
 #confirmacao {
   color: #333;
 }
 
-/* Estilo para o formulário quando estiver em tela pequena */
+/* Estilo para o formulário em telas pequenas */
 @media (max-width: 480px) {
   form {
     padding: 20px;
+    margin-left: 10px; /* Afasta um pouco da borda esquerda */
+    margin-right: 10px; /* Afasta um pouco da borda direita */
   }
 }
