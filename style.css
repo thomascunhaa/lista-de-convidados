@@ -7,32 +7,30 @@ body {
 }
 
 .container {
-  max-width: 800px;
-  margin: 0 auto; /* Centraliza horizontalmente */
-  padding: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centraliza verticalmente */
-  align-items: center; /* Centraliza horizontalmente */
-  min-height: 100vh; /* Para garantir que o contêiner ocupe pelo menos toda a altura da tela */
-}
-
-h2 {
-  text-align: center;
-  margin-top: 30px;
-  color: #3498db; /* Azul serenity */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .form-container {
+  max-width: 400px;
+  padding: 30px; /* Movido para dentro do .form-container */
   background-color: #fff;
-  padding: 30px;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+h2 {
+  text-align: center;
+  color: #3498db;
+}
+
 form {
-  max-width: 400px;
-  margin: 0 auto;
+  margin-top: 20px;
 }
 
 label {
@@ -43,7 +41,7 @@ label {
 
 input,
 button {
-  width: 100%;
+  width: calc(100% - 24px); /* Ajusta a largura para compensar o padding */
   padding: 12px;
   margin-bottom: 20px;
   border: 1px solid #ccc;
@@ -53,14 +51,14 @@ button {
 }
 
 button {
-  background-color: #3498db; /* Azul serenity */
+  background-color: #3498db;
   color: white;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 button:hover {
-  background-color: #2980b9; /* Azul serenity mais escuro */
+  background-color: #2980b9;
 }
 
 /* Estilo para o formulário quando estiver em tela pequena */
