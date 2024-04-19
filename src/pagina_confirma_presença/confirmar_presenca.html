@@ -15,13 +15,14 @@
   <!-- Texto de boas-vindas -->
   <p>Olá, seja bem-vindo(a) ao nosso casamento!</p>
 
-  <form name="confirmarPresencaForm" method="post" action="" onsubmit="return mostrarConfirmacoes()">
+  <form name="confirmarPresencaForm" method="post" action="">
     <div id="pessoas-container">
       <!-- Campos para a primeira pessoa -->
       <div class="pessoa">
-        <label for="nome1">Nome:</label>
-        <input type="text" id="nome1" name="nome1" required>
-        <select name="confirmacao1">
+        <label for="nome">Seu nome:</label>
+        <input type="text" name="nome" required>
+        <label for="confirmacao">Você confirma sua presença?</label>
+        <select id="confirmacao" name="confirmacao" required>
           <option value="Sim">Sim</option>
           <option value="Não">Não</option>
         </select>
@@ -38,8 +39,6 @@
       <div class="spinner"></div>
     </div>
   </form>
-
-  <ul id="confirmacoes-lista"></ul>
 
   <script src="script.js"></script> <!-- Arquivo JavaScript para manipulação de eventos -->
 </body>

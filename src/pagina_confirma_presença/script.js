@@ -4,9 +4,24 @@ const dados_do_formulario = document.forms['confirmarPresencaForm'];
 dados_do_formulario.addEventListener('submit', function(event) {
   event.preventDefault(); // Evita o envio padrão do formulário
 
+  // Criar um novo FormData para armazenar todos os campos do formulário
+  var formData = new FormData();
+
+  // Adicionar os campos do formulário original
+  var camposFormulario = new FormData(dados_do_formulario);
+  camposFormulario.forEach(function(value, key) {
+    formData.append(key, value);
+  });
+
+  // Adicionar os campos dos novos elementos dinâmicos
+  var novosCampos = document.querySelectorAll('.pessoa input[type="text"], .pessoa select');
+  novosCampos.forEach(function(campo) {
+    formData.append(campo.name, campo.value);
+  });
+
   mostrarLoading(); // Mostrar o loading antes de enviar os dados
 
-  fetch(scrip_do_google, {method: 'POST', mode: 'no-cors', body: new FormData(dados_do_formulario)})
+  fetch(scrip_do_google, {method: 'POST', mode: 'no-cors', body: formData})
     .then(response => {
       if (!response.ok) {
         window.location.href = 'confirmacao.html';  
@@ -22,7 +37,6 @@ dados_do_formulario.addEventListener('submit', function(event) {
     });
 });
 
-
 function mostrarLoading() {
   document.getElementById('loading').style.display = 'block';
 }
@@ -30,20 +44,6 @@ function mostrarLoading() {
 function esconderLoading() {
   document.getElementById('loading').style.display = 'none';
 }
-
-function enviarFormulario() {
-  // Oculta o botão e mostra a mensagem de "Enviando..."
-  document.getElementById('enviar').style.display = 'none';
-  document.getElementById('loading').style.display = 'block';
-
-  // Simula um envio (você pode adicionar a lógica de envio aqui)
-  setTimeout(function() {
-    // Após um tempo de simulação, mostra a mensagem de "Enviado!"
-    document.getElementById('loading').style.display = 'none';
-    document.getElementById('enviado').style.display = 'block';
-  }, 2000); // Simula um envio de 2 segundos (você pode ajustar conforme necessário)
-}
-
 
 function adicionarPessoa() {
   // Encontrar o contêiner de pessoas
@@ -57,7 +57,6 @@ function adicionarPessoa() {
   var numeroPessoas = document.querySelectorAll(".pessoa").length + 1;
   var nomeInput = document.createElement("input");
   nomeInput.type = "text";
-  nomeInput.id = "nome" + numeroPessoas;
   nomeInput.name = "nome" + numeroPessoas;
   nomeInput.required = true;
 
@@ -74,7 +73,6 @@ function adicionarPessoa() {
 
   // Criar rótulos para os campos
   var nomeLabel = document.createElement("label");
-  nomeLabel.htmlFor = "nome" + numeroPessoas;
   nomeLabel.textContent = "Nome:";
 
   var confirmacaoLabel = document.createElement("label");
