@@ -15,25 +15,31 @@
   <!-- Texto de boas-vindas -->
   <p>Olá, seja bem-vindo(a) ao nosso casamento!</p>
 
-  <form name="confirmarPresencaForm" method="post" action="">
-    <label for="nome">Seu nome:</label>
-    <input type="text" name="nome" required>
-    <br>
-    <label for="confirmacao">Você confirma sua presença?</label>
-    <select id="confirmacao" name="confirmacao" required>
-      <option value="Sim">Sim</option>
-      <option value="Não">Não</option>
-    </select>
-    <br>
-    <div id="enviar-ou-loading">
-      <button type="submit" id="enviar" onclick="enviarFormulario()">Confirmar Presença</button>
-      <div id="loading" style="display: none; text-align: center;">
-        <div class="spinner"></div> <!-- Coloquei aqui -->
+  <form name="confirmarPresencaForm" method="post" action="" onsubmit="return mostrarConfirmacoes()">
+    <div id="pessoas-container">
+      <!-- Campos para a primeira pessoa -->
+      <div class="pessoa">
+        <label for="nome1">Nome:</label>
+        <input type="text" id="nome1" name="nome1" required>
+        <select name="confirmacao1">
+          <option value="Sim">Sim</option>
+          <option value="Não">Não</option>
+        </select>
       </div>
     </div>
-
-
+    <br>
+    <!-- Botão para adicionar outra pessoa -->
+    <button type="button" onclick="adicionarPessoa()">Adicionar outra pessoa</button>
+    <br>
+    <!-- Botão de envio -->
+    <button type="submit" id="enviar">Confirmar Presença</button>
+    <!-- Spinner de loading -->
+    <div id="loading" style="display: none; text-align: center;">
+      <div class="spinner"></div>
+    </div>
   </form>
+
+  <ul id="confirmacoes-lista"></ul>
 
   <script src="script.js"></script> <!-- Arquivo JavaScript para manipulação de eventos -->
 </body>

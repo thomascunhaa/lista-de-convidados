@@ -43,3 +43,49 @@ function enviarFormulario() {
     document.getElementById('enviado').style.display = 'block';
   }, 2000); // Simula um envio de 2 segundos (você pode ajustar conforme necessário)
 }
+
+
+function adicionarPessoa() {
+  // Encontrar o contêiner de pessoas
+  var pessoasContainer = document.getElementById("pessoas-container");
+
+  // Criar uma nova div para a próxima pessoa
+  var novaPessoaDiv = document.createElement("div");
+  novaPessoaDiv.className = "pessoa";
+
+  // Criar os campos para a próxima pessoa
+  var numeroPessoas = document.querySelectorAll(".pessoa").length + 1;
+  var nomeInput = document.createElement("input");
+  nomeInput.type = "text";
+  nomeInput.id = "nome" + numeroPessoas;
+  nomeInput.name = "nome" + numeroPessoas;
+  nomeInput.required = true;
+
+  var confirmacaoSelect = document.createElement("select");
+  confirmacaoSelect.name = "confirmacao" + numeroPessoas;
+  var simOption = document.createElement("option");
+  simOption.value = "Sim";
+  simOption.textContent = "Sim";
+  var naoOption = document.createElement("option");
+  naoOption.value = "Não";
+  naoOption.textContent = "Não";
+  confirmacaoSelect.appendChild(simOption);
+  confirmacaoSelect.appendChild(naoOption);
+
+  // Criar rótulos para os campos
+  var nomeLabel = document.createElement("label");
+  nomeLabel.htmlFor = "nome" + numeroPessoas;
+  nomeLabel.textContent = "Nome:";
+
+  var confirmacaoLabel = document.createElement("label");
+  confirmacaoLabel.textContent = "Confirmação de Presença:";
+
+  // Adicionar os campos e rótulos à nova div da pessoa
+  novaPessoaDiv.appendChild(nomeLabel);
+  novaPessoaDiv.appendChild(nomeInput);
+  novaPessoaDiv.appendChild(confirmacaoLabel);
+  novaPessoaDiv.appendChild(confirmacaoSelect);
+
+  // Adicionar a nova div da pessoa ao contêiner de pessoas
+  pessoasContainer.appendChild(novaPessoaDiv);
+}
